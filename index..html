@@ -1,0 +1,134 @@
+<!--
+Ougaba Gray
+2405837
+CIT2011 – Graded Lab 3
+-->
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rent Receipt</title>
+
+<!-- Google Fonts (typewriter + UI) -->
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="container" role="main">
+    <!-- Left: Form -->
+    <section class="panel form-panel" aria-labelledby="title">
+    <h1 id="title">GENERATE RENT RECEIPT</h1>
+
+    <form id="receiptForm" novalidate>
+        <div class="grid-2">
+        <label>Tenant name
+            <input type="text" name="tenant" maxlength="40" placeholder="Tenant name" required>
+        </label>
+        <label>Landlord name
+            <input type="text" name="landlord" maxlength="40" placeholder="Landlord name" required>
+        </label>
+        </div>
+
+        <div class="grid-2">
+        <label>Email
+            <input type="email" name="email" maxlength="60" placeholder="tenant@email.com">
+        </label>
+        <label>Phone
+            <input type="tel" name="phone" maxlength="20" placeholder="+1 (___) ___‑____">
+        </label>
+        </div>
+
+        <div class="grid-2">
+        <label>Property / Address
+            <input type="text" name="address" maxlength="80" placeholder="Property / Address" required>
+        </label>
+        <label>Unit
+            <input type="text" name="unit" maxlength="12" placeholder="Unit">
+        </label>
+        </div>
+
+        <div class="grid-2">
+        <label>Amount (USD)
+            <input type="number" name="amount" min="0" step="0.01" placeholder="0.00" required>
+        </label>
+        <label>Payment date
+            <input type="date" name="payDate" required>
+        </label>
+        </div>
+
+        <div class="grid-2">
+        <label>Rent Period From
+            <input type="date" name="from" required>
+        </label>
+        <label>To
+            <input type="date" name="to" required>
+        </label>
+        </div>
+
+        <div class="grid-2">
+        <label>Payment method
+            <select name="method" required>
+            <option>Online</option>
+            <option>Cash</option>
+            <option>Card</option>
+            <option>Bank Transfer</option>
+            </select>
+        </label>
+        <label>Receipt ID
+            <input type="text" name="receiptId" maxlength="16" value="RCPT-001" required>
+        </label>
+        </div>
+
+        <label>Notes
+        <textarea name="notes" rows="2" maxlength="200"></textarea>
+        </label>
+
+        <label>Signature
+        <input type="text" name="signature" maxlength="60" placeholder="Digital/Typed Signature">
+        </label>
+
+        <div class="actions" role="group" aria-label="Actions">
+        <button type="button" class="btn solid" name="Generate Receipt">
+            <span class="material-icons-outlined" aria-hidden="true">receipt_long</span>
+            GENERATE RECEIPT
+        </button>
+        <button type="button" class="btn" name="Print">
+            <span class="material-icons-outlined" aria-hidden="true">print</span>
+            PRINT
+        </button>
+        <button type="button" class="btn" name="Save">
+            <span class="material-icons-outlined" aria-hidden="true">save_alt</span>
+            SAVE
+        </button>
+        </div>
+    </form>
+
+    <h2 class="saved-heading">Saved Receipts</h2>
+    </section>
+
+    <!-- Right: Preview -->
+    <aside class="panel preview-panel" aria-label="Preview">
+    <div class="preview-card">
+        <div class="slip">
+        <h3>Receipt</h3>
+        <div class="slip-body">
+            <p><strong>Tenant:</strong></p>
+            <p><strong>Landlord:</strong></p>
+            <p><strong>Address:</strong></p>
+            <p><strong>Amount:</strong></p>
+            <p><strong>Payment Method:</strong></p>
+            <p><strong>Date:</strong></p>
+            <p><strong>Receipt No:</strong></p>
+        </div>
+        </div>
+    </div>
+    </aside>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

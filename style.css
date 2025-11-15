@@ -1,0 +1,173 @@
+/*
+Ougaba Gray
+2405837
+CIT2011 – Graded Lab 3
+*/
+
+/*Universal*/
+:root{
+    --main-bg: #ffffff;
+    --panel-bg: #ffffff;
+    --peach: #fde7ca;
+    --ink: #000000;
+    --font-type: 'Special Elite', 'Courier New', Courier, monospace;
+    --font-body: verdana, sans-serif;
+    --border: #000000;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: var(--font-body);
+    background-color: var(--main-bg);
+    color: var(--ink);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container Layout */
+.container{
+    max-width:1100px;
+    margin:20px auto;
+    padding:0 16px;
+    display:grid;
+    gap:20px;
+    grid-template-columns:1fr;
+}
+
+/* Panels */
+.panel{
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    padding: 1.5em;
+}
+
+.form-panel h1{
+    font-family: var(--font-type);
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+/* Form Styling */
+form{
+    display: grid;
+    gap: 1em;
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+label{
+    font-size: 0.9em;
+    display: grid;
+    gap: 0.5em;
+}
+input, select, textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--font-body);
+}
+input:focus, select:focus, textarea:focus{
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+.actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 16px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: bold;
+    font-family: var(--font-type);
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.btn:hover{
+    background: var(--peach);
+}
+.btn:active{
+    transform: scale(0.97);
+}
+.btn.solid{
+    background: var(--ink);
+    color: #fff;
+}
+
+.saved-heading{
+    font-family: var(--font-type);
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+/* Preview Section */
+.preview-panel{
+    background: var(--peach);
+    border: 1px solid var(--border);
+}
+.preview-card{
+    border: 2px dashed rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 1em;
+    background: var(--peach);
+}
+.slip{
+    background: #fff;
+    border: 1px dotted var(--border);
+    border-radius: 8px;
+    padding: 1em;
+}
+.slip h3{
+    font-family: var(--font-type);
+    margin-bottom: 0.5em;
+}
+.slip-body{
+    font-family: var(--font-type);
+    line-height: 1.4;
+}
+
+/* Print Formatting */
+@media print{
+    .preview-panel, .saved-heading {display:none;}
+    .container {grid-template-columns: 1fr;}
+}
+
+/* Responsive Design */
+@media (min-width:600px){
+    .container{grid-template-columns: 1fr 1fr;}
+    .grid-2{grid-template-columns: 1fr 1fr;}
+}
+
+@media (min-width:950px){
+    .container{grid-template-columns: 1.05fr .95fr;}
+}
+
+/* Animation */
+@keyframes fadeInUp{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+.panel{
+    animation: fadeInUp 0.5s ease-in-out;
+}
